@@ -12,13 +12,13 @@
 
 	if($senhaNova != '') {
 		try{
-			$query = sprintf("SELECT u.senha FROM usuario u WHERE email = '$emailAtual'");
+			$query = sprintf("SELECT u.senha FROM usuario u WHERE id_usuario = '$emailAtual'");
 			$resultado = mysqli_query($conexao,$query) or die(mysqli_error($conexao));
 			$resultado = mysqli_fetch_array($resultado); //Transformando o resultado em array
 
 			//Verificando se as senhas são diferentes para então mudar
 			if ($resultado['senha'] != $senhaNova && $resultado['senha'] == $senhaVelha) {
-				$query = sprintf("UPDATE usuario SET senha = '$senhaNova' WHERE email = '$emailAtual'");
+				$query = sprintf("UPDATE usuario SET senha = '$senhaNova' WHERE id_usuario = '$emailAtual'");
 				$resultado = mysqli_query($conexao,$query) or die(mysqli_error($conexao));
 				header('Location: home.php?att=sucesso');
 			}
@@ -34,7 +34,7 @@
 
 	if ($emailNovo != $emailAtual) {
 		try{
-			$query = sprintf("UPDATE usuario SET email = '$emailNovo' WHERE email = '$emailAtual'");
+			$query = sprintf("UPDATE usuario SET id_usuario = '$emailNovo' WHERE id_usuario = '$emailAtual'");
 			$resultado = mysqli_query($conexao,$query) or die(mysqli_error($conexao));
 			$_SESSION['email'] = $emailNovo;
 			header('Location: home.php?att=sucesso'); //Nada a mudar

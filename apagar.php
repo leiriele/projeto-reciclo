@@ -8,7 +8,7 @@
   	$emailAtual = $_SESSION['email'];
 
   	try {
-  		$query = sprintf("DELETE FROM usuario WHERE email = '$emailAtual'");
+  		$query = sprintf("DELETE FROM usuario WHERE id_usuario = '$emailAtual'");
 		$resultado = mysqli_query($conexao,$query) or die(mysqli_error($conexao));
 		header('Location: logoff.php'); //redireciona para a destruição da sessão e depois index.php
   	} catch (Exception $e) {

@@ -13,7 +13,7 @@
 	$senha = $_POST['senha'];
 
 	//Consultando no BD
-	$query = sprintf("SELECT u.email, u.senha FROM usuario u WHERE u.email = '$email' AND u.senha = '$senha'");
+	$query = sprintf("SELECT u.id_usuario, u.senha FROM usuario u WHERE u.id_usuario = '$email' AND u.senha = '$senha'");
 	$resultado = mysqli_query($conexao,$query) or die(mysqli_error($conexao));
 
 	//Verificando se foi encontrado alguma credencial correspondente
