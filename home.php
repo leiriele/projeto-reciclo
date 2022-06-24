@@ -45,6 +45,14 @@
             <!-- Sidebar Links -->
             <ul class="list-unstyled components">
                 <li class="active"><a href="#"><i class='fas fa-home'></i>  Home</a></li>
+                <li class=""><a href="#"><i class='fas fa-plus'></i>  Ponto de coleta</a></li>
+                <?php 
+                  if ($_SESSION['tipo_usuario'] == 3) {
+                 ?>
+                  <li class=""><a href="#"><i class='fas fa-map-marker-alt'></i>  Ponto de coleta fixo</a></li>
+                <?php 
+                  }
+                 ?>
             </ul>
             <!-- Button trigger modal -->
             <div class="opcoes">

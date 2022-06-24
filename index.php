@@ -122,6 +122,11 @@
 						  <input type="radio" class="btn-check" name="perfilUsuario" id="coletor" autocomplete="off" value="2">
 						  <label class="btn btn-outline-success" for="coletor">Coletor</label>
 						</div>
+						<!--
+							1 - Cliente comum
+							2 - Coletor
+							3 - Admin(somente através do BD) 
+						-->
 
 
 	                    <div class="form-group">

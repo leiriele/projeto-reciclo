@@ -10,6 +10,7 @@
 		private $senha = null;
 		private $dataNasc = null;
 		private $dataCad = null;
+		private $perfilUsuario = null;
 		public $status = null;
 
 		public function __set($attr, $value){
@@ -37,6 +38,7 @@
 	$usuario->__set('email', $_POST['email']);
 	$usuario->__set('senha', $_POST['senha']);
 	$usuario->__set('dataCad', date('Y/m/d'));
+	$usuario->__set('perfilUsuario', $_POST['perfilUsuario']);
 
 	//convertendo a data de nascimento vinda da interface
 	$data = str_replace("/", "-", $_POST["dataNasc"]);
@@ -56,8 +58,9 @@
     	$senha = $usuario->__get('senha');
     	$dataNasc = $usuario->__get('dataNasc');
     	$dataCad = $usuario->__get('dataCad');
+    	$perfilUsuario = $usuario->__get('perfilUsuario');
 
-  		$query = sprintf("INSERT INTO usuario VALUES ('$nome', '$email', '$senha', '$dataNasc', '$dataCad')");
+  		$query = sprintf("INSERT INTO usuario VALUES ('$email', '1', '1', '$dataNasc', '1', '$senha', '$perfilUsuario', 1)");
 		$resultado = mysqli_query($conexao,$query) or die(mysqli_error($conexao));
 
 		$usuario->status = 1;
@@ -101,7 +104,7 @@
 	 	<div class="container">
 	 		
 	 		<div class="py-3 text-center">
-				<h2>E-mail ESOF</h2>
+				<h2>ReCiclo</h2>
 				<p class="lead">Seu cadastro foi realizado com sucesso! Clique no botão abaixo para realizar o login.</p>
 			</div>
 
