@@ -45,6 +45,7 @@
             <!-- Sidebar Links -->
             <ul class="list-unstyled components">
                 <li class="active"><a href="#"><i class='fas fa-home'></i>  Home</a></li>
+
                 <?php 
                   if ($_SESSION['tipo_usuario'] != 1) {
                 ?>
@@ -52,10 +53,19 @@
                 <?php 
                   }
                 ?>
+
                 <?php 
                   if ($_SESSION['tipo_usuario'] == 3) {
                 ?>
-                  <li class=""><a href="#"><i class='fas fa-map-marker-alt'></i>  Ponto de coleta fixo</a></li>
+                  <li class=""><a href="#" data-bs-toggle="modal" data-bs-target="#modalAdcPonto"><i class='fas fa-map-marker-alt'></i>  Ponto de coleta fixo</a></li>
+                <?php 
+                  }
+                ?>
+
+                <?php 
+                  if ($_SESSION['tipo_usuario'] == 1) {
+                ?>
+                  <li class=""><a href="#" data-bs-toggle="modal" data-bs-target="#modalAdcPedido"><i class='fas fa-plus'></i>  Pedido de coleta</a></li>
                 <?php 
                   }
                 ?>
@@ -283,17 +293,60 @@
               </div>
             </div>
           </div>
+
           <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
               <input type="submit" class="btn btn-primary" value="Salvar">
             </form>
           </div>
-          <div class="modal-footer">
-            
-          </div>
+
         </div>
       </div>
-    </div>
+    </div><!-- FIM Modal adicionar ponto-->
+
+    <!-- Modal adicionar pedido-->
+    <div class="modal fade" id="modalAdcPedido" tabindex="-1" aria-labelledby="exampleModalLabelPedido" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content borda30">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabelPonto">Adicionar Pedido de Coleta</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <div class="container">
+              <div class="row">
+                <div class="form-group">
+                  <form action="adicionar_pedido.php" method="POST">
+
+                    <label class="m-1" for="midia">Insira uma foto:</label>
+                    <input class="form-control" type="file" name="midia" id="midia">
+
+                    <label class="m-1" for="qnt_plastico">Digite a quantidade de plástico:</label>
+                    <input class="form-control" type="text" name="qnt_plastico" id="qnt_plastico">
+
+                    <label class="m-1" for="qnt_vidro">Digite a quantidade de vidro:</label>
+                    <input class="form-control" type="text" name="qnt_vidro" id="qnt_vidro">
+
+                    <label class="m-1" for="qnt_aluminio">Digite a quantidade de alumínio:</label>
+                    <input class="form-control" type="text" name="qnt_aluminio" id="qnt_aluminio">
+
+                    <label class="m-1" for="qnt_papel">Digite a quantidade de papel:</label>
+                    <input class="form-control" type="text" name="qnt_papel" id="qnt_papel">
+
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+              <input type="submit" class="btn btn-primary" value="Salvar">
+            </form>
+          </div>
+
+        </div>
+      </div>
+    </div><!-- FIM Modal adicionar ponto-->
 
     <script type="text/javascript">
       function apagar() {
