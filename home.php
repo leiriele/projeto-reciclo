@@ -45,14 +45,20 @@
             <!-- Sidebar Links -->
             <ul class="list-unstyled components">
                 <li class="active"><a href="#"><i class='fas fa-home'></i>  Home</a></li>
-                <li class=""><a href="#"><i class='fas fa-plus'></i>  Ponto de coleta</a></li>
+                <?php 
+                  if ($_SESSION['tipo_usuario'] != 1) {
+                ?>
+                  <li class=""><a href="#" data-bs-toggle="modal" data-bs-target="#modalAdcPonto"><i class='fas fa-plus'></i>  Ponto de coleta</a></li>
+                <?php 
+                  }
+                ?>
                 <?php 
                   if ($_SESSION['tipo_usuario'] == 3) {
-                 ?>
+                ?>
                   <li class=""><a href="#"><i class='fas fa-map-marker-alt'></i>  Ponto de coleta fixo</a></li>
                 <?php 
                   }
-                 ?>
+                ?>
             </ul>
             <!-- Button trigger modal -->
             <div class="opcoes">
@@ -90,7 +96,7 @@
 
     </div>
 
-    <!-- Modal -->
+    <!-- Modal Configurações-->
     <div class="modal fade" id="modalConfig" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog">
         <div class="modal-content borda30">
@@ -248,6 +254,46 @@
     <?php 
       }
     ?>
+
+    <!-- Modal adicionar ponto-->
+    <div class="modal fade" id="modalAdcPonto" tabindex="-1" aria-labelledby="exampleModalLabelPonto" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content borda30">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabelPonto">Adicionar Ponto</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <div class="container">
+              <div class="row">
+                <div class="form-group">
+                  <form action="adicionar_ponto.php" method="POST">
+
+                    <label class="m-1" for="nome">Digite o nome do ponto:</label>
+                    <input class="form-control" type="text" name="nome" id="nome">
+                    <label class="m-1" for="tipo_ponto">Digite o tipo:</label>
+                    <input class="form-control" type="text" name="tipo_ponto" id="tipo_ponto">
+                    <label class="m-1" for="horario">Digite o horário de funcionamento:</label>
+                    <input class="form-control" type="text" name="horario" id="horario">
+                    <label class="m-1" for="contato">Digite o contato:</label>
+                    <input class="form-control" type="text" name="contato" id="contato">
+                    <label class="m-1" for="endereco">Digite o endereço:</label>
+                    <input class="form-control" type="text" name="endereco" id="endereco">
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+              <input type="submit" class="btn btn-primary" value="Salvar">
+            </form>
+          </div>
+          <div class="modal-footer">
+            
+          </div>
+        </div>
+      </div>
+    </div>
 
     <script type="text/javascript">
       function apagar() {
