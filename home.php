@@ -5,6 +5,7 @@
 <html>
   <head>
     <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>ReCiclo - Salve a Terra</title>
     <link rel="icon" href="imagens/mail.png">
 
@@ -39,7 +40,7 @@
             <!-- Sidebar Header -->
             <div class="sidebar-header">
                 <img src="imagens/perfil.png" width="50px" height="50px">
-                <div class="d-inline-block text-truncate" style="max-width: 150px;"><?= $_SESSION['email']; ?></div>
+                <div class="d-inline-block text-truncate align-self-center" style="max-width: 150px;"><?= $_SESSION['email']; ?></div>
             </div>
 
             <!-- Sidebar Links -->
@@ -49,7 +50,14 @@
                 <?php 
                   if ($_SESSION['tipo_usuario'] != 1) {
                 ?>
-                  <li class=""><a href="#" data-bs-toggle="modal" data-bs-target="#modalAdcPonto"><i class='fas fa-plus'></i>  Ponto de coleta</a></li>
+                  <li class=""><a href="#" data-bs-toggle="modal" data-bs-target="#modalAdcPonto"><i class='mr-1 fas fa-plus'></i>  Ponto de coleta</a></li>
+                  <!-- <li>
+                      <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false"><i class='mr-1 fas fa-exclamation'></i> Pedidos de coleta<i class='ml-5 fas fa-chevron-down'></i></a> 
+                      <ul class="collapse list-unstyled" id="homeSubmenu">
+                          <li><a href="#">Page</a></li>
+                          <li><a href="#">Page</a></li>
+                          <li><a href="#">Page</a></li>
+                      </ul> -->
                 <?php 
                   }
                 ?>
@@ -82,24 +90,24 @@
             </div>
         </nav>
 
-        <div id="content" style="width: auto%;max-width: 100%; display: flex;">
+        <div id="content" style="min-width: 100%; margin: 0 20px !important; max-width: 100%;">
             <button type="button" id="sidebarCollapse" class="btn navbar-btn btn-light" style="border: none;">
                 <span></span>
                 <span></span>
                 <span></span>
             </button>
 
-            <!-- <div class="container">
+            <div class="container" style="margin-left: 5%;">
               <div class="row header-caixa">
                 
               </div>
               <div class="row body-caixa">
-        
+                Body
               </div>
               <div class="row footer-caixa">
                 
               </div>
-            </div> -->
+            </div>
         </div>
 
 
