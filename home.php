@@ -39,7 +39,7 @@
             <!-- Sidebar Header -->
             <div class="sidebar-header">
                 <img src="imagens/perfil.png" width="50px" height="50px">
-                <?= $_SESSION['email']; ?>
+                <div class="d-inline-block text-truncate" style="max-width: 150px;"><?= $_SESSION['email']; ?></div>
             </div>
 
             <!-- Sidebar Links -->
@@ -342,25 +342,16 @@
                               require('conexao.php');
 
                               //Consultando no BD
-                              $query = sprintf("SELECT idPontoColeta, nome FROM pontocoleta");
-                              $resultado = mysqli_query($conexao,$query) or die(mysqli_error($conexao));
-                              // echo "<option>";
-                              //     print_r($resultado);
-                              // echo "/<option>";
+                              $query = sprintf("SELECT idPontoColeta, nome FROM pontocoleta;");
 
                               //Verificando se foi encontrado algum ponto
-                              if (mysqli_num_rows($resultado) != 0) {
+                              if ($resultado = mysqli_query($conexao,$query)) {
 
-                                //Pegando o resultado da consulta vinda do banco e guardando num array
-                                $resultado = mysqli_fetch_array($resultado);
-                              //   echo "<option>";
-                              //     print_r($resultado);
-                              // echo "/<option>";
+                                $resultado = $resultado->fetch_all(MYSQLI_ASSOC);
 
-                                
-                                foreach ($resultado as $key => $value){
-                                  echo "<option value='".$resultado['idPontoColeta'].">".$resultado['nome']."</option>";                        
-                                }                                
+                                foreach ($resultado as $row):
+                                  echo "<option value=".$row['idPontoColeta'].">".$row['nome']."</option>";
+                                endforeach;
                               }
                               else{
                                 echo "<option>Nenhum ponto foi encontrado</option>";
