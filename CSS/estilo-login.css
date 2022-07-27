@@ -1,0 +1,98 @@
+/***********************/
+ /*Estilizando formulários*/
+ body{
+ 	font-family: "Trebuchet MS", Helvetica, sans-serif ;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+ }
+
+#fundo{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+}
+
+#container{
+    width: 400px;
+    height: 300px;
+    background-color: rgba(255, 255, 255, 0.7);
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    margin: 0 auto;
+    margin-top: 120px;
+    text-align: center;
+    position: relative;
+    top: 150px;
+}
+
+#container img{
+    width: 120px;
+    height: 120px;
+    margin-top: -60px;
+    margin-bottom: 30px;
+}
+
+input{
+    height: 40px;
+    width: 90% !important;
+    margin-bottom: 10px;
+    font-size: 18px;
+    background-color: #FFF;
+    padding-left: 40px;
+    border: none;
+    background-repeat: no-repeat;
+    background-position: 10px;
+    border-radius: 10px;
+}
+
+input.email{
+    background-image: url(../imagens/icone-usuario.png);
+}
+
+input.senha{
+    background-image: url(../imagens/icone-cadeado.png);
+}
+
+input.submit{
+    color: #FFF;
+    background-color: #26547c;
+    border: 2px solid #26547c;
+    padding: 5px 20px;
+    height: 45px;
+    width: 90%;
+
+    background: -webkit-linear-gradient(to bottom, #26547c, #234c71);
+    background: -moz-linear-gradient(to bottom, #26547c, #234c71);
+    background: -o-linear-gradient(to bottom, #26547c, #234c71);
+    background: linear-gradient(to bottom, #26547c, #234c71);
+}
+
+input.submit:hover{
+    background: -webkit-linear-gradient(to top, #26547c, #234c71);
+    background: -moz-linear-gradient(to top, #26547c, #234c71);
+    background: -o-linear-gradient(to top, #26547c, #234c71);
+    background: linear-gradient(to top, #26547c, #234c71);
+}
+
+.btn-enviar button{
+    border-top-right-radius: 30px;
+    border-bottom-right-radius: 30px;
+    background-color: #7B528D;
+    border-color: #2E255D;
+    padding-right: 15px;
+    margin-right: 7px;
+    border-left: #FFF
+}
+.btn-enviar button{
+    border-radius: 30px;
+}
+
+a.link-reg  {
+    color: #26547c;
+}
+
+a.link-reg:hover{
+    color: #639dcf;
+}
