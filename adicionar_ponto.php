@@ -3,6 +3,8 @@
 	//Incluíndo conexão com o banco de dados
 	require('conexao.php');
 
+	session_start();
+
 	// class Usuario{
 
 	// 	private $nome = null;
@@ -41,9 +43,11 @@
 	$endereco = $_POST['endereco'];
 	$id = rand(1, 100000);
 
+	$id_user = $_SESSION['email'];
+
     try {
 
-  		$query = sprintf("INSERT INTO pontocoleta VALUES ( '$id','$nome', '$tipo_ponto', '$horario','$contato', 1);");
+  		$query = sprintf("INSERT INTO pontocoleta VALUES ( '$id','$nome', '$tipo_ponto', '$horario','$contato', 1, '$id_user');");
 		$resultado = mysqli_query($conexao,$query) or die(mysqli_error($conexao));
 
 		mysqli_close($conexao); //Fecha conexão com banco de dados

@@ -333,6 +333,44 @@
                     <label class="m-1" for="qnt_papel">Digite a quantidade de papel:</label>
                     <input class="form-control" type="text" name="qnt_papel" id="qnt_papel">
 
+                    <div class="form-group">
+                        <label class="m-1" for="ponto_coleta">Selecione o ponto de coleta:</label>
+                        <select class="form-control" id="ponto_coleta" name="ponto_coleta">
+                            <?php 
+
+                              //Incluíndo a conexão ao BD
+                              require('conexao.php');
+
+                              //Consultando no BD
+                              $query = sprintf("SELECT idPontoColeta, nome FROM pontocoleta");
+                              $resultado = mysqli_query($conexao,$query) or die(mysqli_error($conexao));
+                              // echo "<option>";
+                              //     print_r($resultado);
+                              // echo "/<option>";
+
+                              //Verificando se foi encontrado algum ponto
+                              if (mysqli_num_rows($resultado) != 0) {
+
+                                //Pegando o resultado da consulta vinda do banco e guardando num array
+                                $resultado = mysqli_fetch_array($resultado);
+                              //   echo "<option>";
+                              //     print_r($resultado);
+                              // echo "/<option>";
+
+                                
+                                foreach ($resultado as $key => $value){
+                                  echo "<option value='".$resultado['idPontoColeta'].">".$resultado['nome']."</option>";                        
+                                }                                
+                              }
+                              else{
+                                echo "<option>Nenhum ponto foi encontrado</option>";
+                              }
+
+                              mysqli_close($conexao); //Fecha conexão com banco de dados
+
+                            ?>
+                        </select>
+                    </div>
                 </div>
               </div>
             </div>
