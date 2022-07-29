@@ -88,141 +88,123 @@
 	              <div class="row">
 	                <div class="form-group">
 	                  <form action="cadastrar.php" method="POST">
-	                  	<div id="carousel-indicadores" class="carousel slide" data-ride="carousel"> <!-- Carousel -->
 
-				            <!-- Indicadores -->
-				            <ol class="carousel-indicators">
+			            <div class="" style="height: 600px;"> <!-- Inicio da parte do cadastro 1 -->
+			              <div class="bloco bloco-1" id="bloco-1">
+			              	<!-- Início do bloco 1 -->
+					        
+		                    <div class="form-group">
+		                      <label for="nome">Nome:</label>
+		                      <input name="nome" type="text" class="form-control" id="nome" placeholder="Digite seu nome aqui" required>
+		                    </div>
 
-				              <li class="active" data-target="#carousel-indicadores" data-slide-to="0"></li>
-				              <li data-target="#carousel-indicadores" data-slide-to="1"></li>
-				              
-				            </ol>
+		                    <div class="form-group">
+		                      <label for="emailCad">E-mail:</label>
+		                      <input name="emailCad" type="email" class="form-control" id="emailCad" placeholder="Digite o e-mail" required>
+		                    </div>
 
-				            <div class="carousel-inner"> <!-- Inner -->
-				              <div class="carousel-item active">
-				              	<!-- Início do bloco 1 -->
-						        
-			                    <div class="form-group">
-			                      <label for="nome">Nome:</label>
-			                      <input name="nome" type="text" class="form-control" id="nome" placeholder="Digite seu nome aqui" required>
-			                    </div>
+		                    <div class="form-group">
+		                      <label for="senhaCad">Senha:</label>
+		                      <input type="password" name="senhaCad" id="senhaCad" class="form-control" placeholder="*****" required>
+		                    </div>
 
-			                    <div class="form-group">
-			                      <label for="email">E-mail:</label>
-			                      <input name="email" type="email" class="form-control" id="email" placeholder="Digite o e-mail" required>
-			                    </div>
+		                    <div class="form-group">
+		                      <label for="dataNasc">Data de nascimento:</label>
+		                      <input type="date" name="dataNasc" id="dataNasc" class="form-control">
+		                    </div>
 
-			                    <div class="form-group">
-			                      <label for="senha">Senha:</label>
-			                      <input type="password" name="senha" id="senha" class="form-control" placeholder="*****" required>
-			                    </div>
+		                    <!-- <div class="form-group">
+		                      <label for="cpf">Perfil do usuário</label>
+		                      <input type="radio" name="perfilUsuario" id="comum" class="form-control" value="1">Comum
+		                      <input type="radio" name="perfilUsuario" id="coletor" class="form-control" value="Coletor">Coletor
+		                    </div> -->
 
-			                    <div class="form-group">
-			                      <label for="dataNasc">Data de nascimento:</label>
-			                      <input type="date" name="dataNasc" id="dataNasc" class="form-control">
-			                    </div>
+		                    <label>Perfil do usuário:</label>
+		                    <div class="btn-group" role="group" aria-label="Perfil de usuário">
+							  <input type="radio" class="btn-check" name="perfilUsuario" id="comum" autocomplete="off" value="1" checked>
+							  <label class="btn btn-outline-success" for="comum" style="border-top-left-radius: 4px;border-bottom-left-radius: 4px;">Comum</label>
 
-			                    <!-- <div class="form-group">
-			                      <label for="cpf">Perfil do usuário</label>
-			                      <input type="radio" name="perfilUsuario" id="comum" class="form-control" value="1">Comum
-			                      <input type="radio" name="perfilUsuario" id="coletor" class="form-control" value="Coletor">Coletor
-			                    </div> -->
-
-			                    <label>Perfil do usuário:</label>
-			                    <div class="btn-group" role="group" aria-label="Perfil de usuário">
-								  <input type="radio" class="btn-check" name="perfilUsuario" id="comum" autocomplete="off" value="1" checked>
-								  <label class="btn btn-outline-success" for="comum" style="border-top-left-radius: 4px;border-bottom-left-radius: 4px;">Comum</label>
-
-								  <input type="radio" class="btn-check" name="perfilUsuario" id="coletor" autocomplete="off" value="2">
-								  <label class="btn btn-outline-success" for="coletor">Coletor</label>
-								</div>
-								<!--
-									1 - Cliente comum
-									2 - Coletor
-									3 - Admin(somente através do BD) 
-								-->
+							  <input type="radio" class="btn-check" name="perfilUsuario" id="coletor" autocomplete="off" value="2">
+							  <label class="btn btn-outline-success" for="coletor">Coletor</label>
+							</div>
+							<!--
+								1 - Cliente comum
+								2 - Coletor
+								3 - Admin(somente através do BD) 
+							-->
 
 
-			                    <div class="form-group">
-			                      <label for="cpf">CPF:</label>
-			                      <input type="text" name="cpf" id="cpf" class="form-control" placeholder="000.000.000-00">
-			                    </div>
+		                    <div class="form-group">
+		                      <label for="cpf">CPF:</label>
+		                      <input type="text" name="cpf" id="cpf" class="form-control" placeholder="000.000.000-00">
+		                    </div>
 
-			                    <div class="form-group">
-			                      <label for="cnpj">CNPJ:</label>
-			                      <input type="text" name="cnpj" id="cnpj" class="form-control" placeholder="00.000.000/0000-00">
-			                    </div>
+		                    <div class="form-group">
+		                      <label for="cnpj">CNPJ:</label>
+		                      <input type="text" name="cnpj" id="cnpj" class="form-control" placeholder="00.000.000/0000-00">
+		                    </div>
 
-			                    <!-- Fim do bloco 1 -->
+		                    <!-- Fim do bloco 1 -->
 
-				              </div>
+			              </div>
 
-				              <div class="carousel-item">
-				              	<!-- Início do bloco 2 -->
+			              <div class="bloco bloco-2" id="bloco-2" style="display: none; height: 550px;">
+			              	<!-- Início do bloco 2 -->
 
-			                    <div class="form-group">
-			                      <label for="descricao">Descrição:</label>
-			                      <input type="text" name="descricao" id="descricao" class="form-control" placeholder="Breve descrição sobre os materiais que você recicla">
-			                    </div>
+		                    <div class="form-group">
+		                      <label for="descricao">Descrição:</label>
+		                      <textarea class="form-control" name="descricao" id="descricao" rows="5" placeholder="Breve descrição sobre os materiais que você recicla" style="resize: none;"></textarea>
+		                    </div>
 
-			                    <div class="row">
-			                    	<div class="col-12">
-								    	<label for="rua" class="form-label">Rua:</label>
-								    	<input type="text" class="form-control" id="rua" name="rua">
-								  	</div>
-			                    </div>
+		                    <div class="row">
+		                    	<div class="col-12">
+							    	<label for="rua" class="form-label lg">Rua:</label>
+							    	<input type="text" class="form-control" id="rua" name="rua">
+							  	</div>
+		                    </div>
 
-			                    <div class="row">
-								  	<div class="col-4">
-								    	<label for="numero" class="form-label">Número:</label>
-									    <input type="text" class="form-control" id="numero" name="numero">
-								  	</div>
-								  	<div class="col-8">
-								    	<label for="bairro" class="form-label">Bairro:</label>
-									    <input type="text" class="form-control" id="bairro" name="bairro">
-								  	</div>
-			                    </div>
+		                    <div class="row">
+							  	<div class="col-4">
+							    	<label for="numero" class="form-label">Número:</label>
+								    <input type="text" class="form-control" id="numero" name="numero">
+							  	</div>
+							  	<div class="col-8">
+							    	<label for="bairro" class="form-label">Bairro:</label>
+								    <input type="text" class="form-control" id="bairro" name="bairro">
+							  	</div>
+		                    </div>
 
-			                    <div class="row">
-			                    	<div class="col-md-6">
-								    	<label for="cidade" class="form-label">Cidade:</label>
-								    	<input type="text" class="form-control" id="cidade" name="cidade">
-								  	</div>
-								  	<div class="col-md-6">
-								    	<label for="estado" class="form-label">Estado:</label>
-									    <select id="estado" class="form-select" name="estado">
-									      <option value="" selected>Escolha uma opção</option>
-									      <option value="MG">MG</option>
-									    </select>
-								  	</div>
-			                    </div>
-			                    <div class="row">
-			                    	<div class="col-6">
-									    <label for="cep" class="form-label">CEP:</label>
-									    <input type="text" class="form-control" id="cep" name="cep" placeholder="00000-000">
-								  	</div>
-								  	<div class="col-6">
-									    <label for="complemento" class="form-label">Complemento:</label>
-									    <input type="text" class="form-control" id="complemento" name="complemento">
-								  	</div>
-			                    </div>
+		                    <div class="row">
+		                    	<div class="col-md-6">
+							    	<label for="cidade" class="form-label">Cidade:</label>
+							    	<input type="text" class="form-control" id="cidade" name="cidade">
+							  	</div>
+							  	<div class="col-md-6">
+							    	<label for="estado" class="form-label">Estado:</label>
+								    <select id="estado" class="form-select" name="estado">
+								      <option value="" selected>Escolha uma opção</option>
+								      <option value="MG">MG</option>
+								    </select>
+							  	</div>
+		                    </div>
+		                    <div class="row">
+		                    	<div class="col-6">
+								    <label for="cep" class="form-label">CEP:</label>
+								    <input type="text" class="form-control" id="cep" name="cep" placeholder="00000-000">
+							  	</div>
+							  	<div class="col-6">
+								    <label for="complemento" class="form-label">Complemento:</label>
+								    <input type="text" class="form-control" id="complemento" name="complemento">
+							  	</div>
+		                    </div>
 
-			                    <!-- Fim do bloco 2 -->
-				              </div>
+		                    <!-- Fim do bloco 2 -->
+			              </div>
+			            </div> <!-- Parte do cadastro -->
 
-				            </div> <!-- Inner -->
+	                    <button type="submit" class="btn btn-success btn-block"><i class="fas fa-user-plus"></i>  Registrar-se</button>
+	                    <a class="btn btn-outline-success btn-block" onclick="setVisible('bloco-1', 'bloco-2');">Alternar</a>
 
-				            <!-- Controles -->
-				            <a href="#carousel-indicadores" class="carousel-control-prev" data-slide="prev">
-				              <span class="carousel-control-prev-icon"></span>
-				            </a>
-
-				            <a href="#carousel-indicadores" class="carousel-control-next" data-slide="next">
-				              <span class="carousel-control-next-icon"></span>
-				            </a>
-				        </div> <!-- Carousel -->
-
-	                    <button type="submit" class="btn btn-outline-success btn-block"><i class="fas fa-user-plus"></i>  Registrar-se</button>
 	                  </form>
 	                </div>
 	              </div>
@@ -231,6 +213,18 @@
 	        </div>
 	      </div>
 	    </div>
+
+	    <script type="text/javascript">
+	    	function setVisible(e, e2){
+	    		if(document.getElementById(e2).style.display == 'none'){
+	    			document.getElementById(e2).style.display = 'block';
+	    			document.getElementById(e).style.display = 'none';
+	    		}else{
+	    			document.getElementById(e2).style.display = 'none';
+	    			document.getElementById(e).style.display = 'block';
+	    		}
+	    	}
+	    </script>
 
 	</body>
 </html>

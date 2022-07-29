@@ -337,3 +337,28 @@ ul ul a {
 .borda30{
     border-radius: 30px!important;
 }
+/*.my-custom-scrollbar {
+  position: relative;
+  padding-top: 1%;
+  width: 100%;
+  margin-left: 1%;
+  margin-right: 5%;
+  height: 99%;  
+  overflow: auto; 
+}*/
+
+.table{
+    --bs-table-striped-bg: rgba(110, 247, 132, 0.2);
+}
+
+.table td{
+    border-top: 1px solid rgba(110, 247, 132, 0.6);
+    border-color: rgba(110, 247, 132, 0);
+}
+
+.center {
+  height: 500px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 3px solid #dbe4ed; /* Border color is optional */  

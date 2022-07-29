@@ -51,13 +51,6 @@
                   if ($_SESSION['tipo_usuario'] != 1) {
                 ?>
                   <li class=""><a href="#" data-bs-toggle="modal" data-bs-target="#modalAdcPonto"><i class='mr-1 fas fa-plus'></i>  Ponto de coleta</a></li>
-                  <!-- <li>
-                      <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false"><i class='mr-1 fas fa-exclamation'></i> Pedidos de coleta<i class='ml-5 fas fa-chevron-down'></i></a> 
-                      <ul class="collapse list-unstyled" id="homeSubmenu">
-                          <li><a href="#">Page</a></li>
-                          <li><a href="#">Page</a></li>
-                          <li><a href="#">Page</a></li>
-                      </ul> -->
                 <?php 
                   }
                 ?>
@@ -97,17 +90,121 @@
                 <span></span>
             </button>
 
+            <!-- Dashboard para coletores -->
+            <?php 
+            //Verificação de coletor
+            if ($_SESSION['tipo_usuario'] != 1) {
+            ?>
             <div class="container" style="margin-left: 5%;">
               <div class="row header-caixa">
                 
               </div>
-              <div class="row body-caixa">
-                Body
+
+              <div class="row body-caixa p-3">
+
+                <div class="card p-3 text-center">
+                  <div class="card-title font-weight-light">
+                    <h1 class="font-weight-light border-bottom border-secondary pb-2" style="border-color:#dee2e6 !important;">Pedidos de Coleta</h1>
+                  </div>
+                  <div class="card-body">
+                    <div class="table-responsive">
+                      <table class="table table-striped text-center">
+                        <thead>
+                          <tr>
+                            <th scope="col">Pedido Nº</th>
+                            <th scope="col">Plástico</th>
+                            <th scope="col">Vidro</th>
+                            <th scope="col">Alumínio</th>
+                            <th scope="col">Papel</th>
+                            <th scope="col">Ponto de Coleta</th>
+                            <th scope="col">Whatsapp</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <?php 
+
+                            //Incluíndo a conexão ao BD
+                              require('conexao.php');
+
+                              $usuario_logado = $_SESSION['email'];
+
+                              //Consultando no BD
+                              $query = sprintf("SELECT p.id_PedidoColeta, p.qnt_plastico, p.qnt_vidro, p.qnt_aluminio, p.qnt_papel, po.nome, p.whatsapp FROM pedidocoleta AS p, usuario AS u, pontocoleta AS po WHERE u.id_usuario = fk_PontoUsuario AND idPontoColeta = fk_pontocoleta AND u.id_usuario = '$usuario_logado';");
+
+                              //Verificando se foi encontrado algum ponto
+                              if ($resultado = mysqli_query($conexao,$query)) {
+
+                              $resultado = $resultado->fetch_all(MYSQLI_ASSOC);
+
+                                foreach ($resultado as $row):
+                           ?>
+                                <tr>
+                                  <th scope="row"> <?= $row['id_PedidoColeta'] ?> </th>
+                                  <td> <?= $row['qnt_plastico'] ?></td>
+                                  <td> <?= $row['qnt_vidro'] ?></td>
+                                  <td><?= $row['qnt_aluminio'] ?></td>
+                                  <td><?= $row['qnt_papel'] ?></td>
+                                  <td><?= $row['nome'] ?></td>
+                                  <td> <a href="https://api.whatsapp.com/send/?phone=<?= $row['whatsapp'] ?>" class="btn btn-success"> <i class="fab fa-whatsapp"></i></a></td>
+                                </tr>
+                            <?php 
+
+                              endforeach;}
+                              else{
+                                echo "<option>Nenhum ponto foi encontrado</option>";
+                              }
+
+                              mysqli_close($conexao); //Fecha conexão com banco de dados
+
+                            ?> 
+                        </tbody>
+                      </table>
+                      
+                    </div>
+                  </div>
+                </div>
+
               </div>
               <div class="row footer-caixa">
                 
               </div>
             </div>
+            <?php
+              }//fechando if de verificação de coletor
+            ?>
+
+            <!-- Dashboard para clientes -->
+            <?php if ($_SESSION['tipo_usuario'] == 1): ?>
+              
+            <div class="container" style="margin-left: 5%;">
+              <div class="row header-caixa">
+                
+              </div>
+
+              <div class="row body-caixa p-3">
+
+                <div class="card p-3 text-center">
+                  <div class="card-title font-weight-light">
+                    <h1 class="border-bottom border-secondary pb-2 font-weight-light" style="border-color:#dee2e6 !important;">ReCiclo</h1>
+                  </div>
+                  <div class="card-body">
+
+                    <div class="centro">
+
+                      <img width="400" src="imagens/recicle.png" style="margin-top: 40px;">
+                      <p class="font-weight-light" style="font-size: 1.5em;">Faça seu pedido de coleta agora mesmo!</p>
+                      
+                    </div>
+
+                  </div>
+                </div>
+
+              </div>
+              <div class="row footer-caixa">
+                
+              </div>
+            </div>
+            <?php endif ?>
         </div>
 
 
@@ -369,6 +466,10 @@
 
                             ?>
                         </select>
+
+                        <label class="m-1" for="whatsapp">Digite seu WhatsApp para contato:</label>
+                        <input class="form-control" type="text" name="whatsapp" id="whatsapp">
+
                     </div>
                 </div>
               </div>

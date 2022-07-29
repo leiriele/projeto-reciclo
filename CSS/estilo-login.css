@@ -96,3 +96,8 @@ a.link-reg  {
 a.link-reg:hover{
     color: #639dcf;
 }
+
+.bloco{
+    min-height: 450px;
+    max-height: 460px;
+}

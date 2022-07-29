@@ -13,13 +13,14 @@
 	$qnt_papel = $_POST['qnt_papel'];
 	$id = rand(1, 100000);
 	$id_cliente = $_SESSION['email'];
+	$whatsapp = $_POST['whatsapp'];
 
 	//Idponto coleta
 	$ponto_coleta = intval($_POST['ponto_coleta']);
 
     try {
 
-  		$query = sprintf("INSERT INTO pedidocoleta VALUES ( '$id','$midia', '$qnt_plastico', '$qnt_vidro', '$qnt_aluminio', '$qnt_papel', '$id_cliente', '$ponto_coleta');");
+  		$query = sprintf("INSERT INTO pedidocoleta VALUES ( '$id','$midia', '$qnt_plastico', '$qnt_vidro', '$qnt_aluminio', '$qnt_papel', '$id_cliente', '$ponto_coleta', '$whatsapp');");
 		$resultado = mysqli_query($conexao,$query) or die(mysqli_error($conexao));
 
 		mysqli_close($conexao); //Fecha conexão com banco de dados
