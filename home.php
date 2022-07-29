@@ -185,7 +185,7 @@
 
                 <div class="card p-3 text-center">
                   <div class="card-title font-weight-light">
-                    <h1 class="border-bottom border-secondary pb-2 font-weight-light" style="border-color:#dee2e6 !important;">ReCiclo</h1>
+                    <h1 class="border-bottom border-secondary pb-2 font-weight-light" style="border-color:#dee2e6 !important;">Mude o mundo!</h1>
                   </div>
                   <div class="card-body">
 
