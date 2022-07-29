@@ -35,8 +35,8 @@
 
 	//Atribuindo valores vindos da interface
 	$usuario->__set('nome', $_POST['nome']);
-	$usuario->__set('email', $_POST['email']);
-	$usuario->__set('senha', $_POST['senha']);
+	$usuario->__set('email', $_POST['emailCad']);
+	$usuario->__set('senha', $_POST['senhaCad']);
 	$usuario->__set('dataCad', date('Y/m/d'));
 	$usuario->__set('perfilUsuario', $_POST['perfilUsuario']);
 
